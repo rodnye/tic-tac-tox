@@ -8,7 +8,15 @@
 }
 
 .game--header {
-  background: blue;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 7px;
+}
+.game--header > .fa-sign-out {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .game--body {
@@ -23,7 +31,8 @@
     flex-direction: column;
   }
   .game--header {
-    height: 50px;
+    min-height: 50px;
+    flex-direction: row;
   }
 }
 
@@ -32,6 +41,7 @@
     flex-direction: row;
   }
   .game--header {
-    width: 50px;
+    min-width: 50px;
+    flex-direction: column;
   }
 }

@@ -7,6 +7,17 @@
     <script src="js/index.js"></script>
   </head>
   <body onload="app.start()">
+    
+    <!-- splash layout -->
+    <div id="splash-screen" style="
+      position: fixed; 
+      background-color: #ffffff;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 100;
+    "></div>
+    
+    <!-- principal screen -->
     <div id="main-screen">
       <div class="title-game">
         <big>T</big>icTacT
@@ -26,12 +37,19 @@
       
     </div>
     
+    
+    
+    <!-- game layout -->
     <div id="game-screen">
-      <div class="game--header"></div>
+      <div class="game--header">
+        <i class="fa fa-sign-out fa-2x" onclick="screen_game.close()"></i>
+      </div>
       <div class="game--body">
         <div class="xo"></div>
       </div>
       <div class="game--footer"></div>
     </div>
+    
+    
   </body>
 </html>
