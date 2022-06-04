@@ -1,0 +1,26 @@
+{
+  "name": "tictactox",
+  "version": "0.0.1-b",
+  "description": "\"tic-tac-toe game with javascript\"",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RodnyE/tic-tac-tox.git"
+  },
+  "keywords": [
+    "tictactoe",
+    "game",
+    "html",
+    "js",
+    "css"
+  ],
+  "author": "Rodny Estrada",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RodnyE/tic-tac-tox/issues"
+  },
+  "homepage": "https://github.com/RodnyE/tic-tac-tox#readme"
+}

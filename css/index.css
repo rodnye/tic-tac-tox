@@ -1,0 +1,32 @@
+/* MAIN */
+:root {
+  --primary-color: #0000ff;
+  --primary-font-color: #ffffff;
+  --accent-color: #ffffff;
+  --accent-lightcolor: #eeeeee;
+  --accent-font-color: #565656;
+  --accent-font-darkcolor: #000000;
+  --accent-font-lightcolor: #cccccc;
+  
+  --cell-win-color: #096900;
+  --cell-win-back-color: #00f91b;
+}
+
+/* FONTS */
+@font-face {
+  font-family: "arco";
+  src: url("../src/fonts/arco.ttf");
+}
+@font-face {
+  font-family: "Helvetica";
+  src: url("../src/fonts/helvetica.ttf");
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: Arco;
+  color: var(--accent-font-color);
+}

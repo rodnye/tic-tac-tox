@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="es">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script src="js/app.js"></script>
+    <script src="js/index.js"></script>
+  </head>
+  <body onload="app.start()">
+    <div id="main-screen">
+      <div class="title-game">
+        <big>T</big>icTacT
+        <big style="color:blue">O</big>
+        <big style="color:red">X</big>
+      </div>
+      
+      <!-- start game 1vs1 -->
+      <button onclick="screen_game.open()">
+        <i class="fa fa-user fa-lg"></i> vs <i class="fa fa-user fa-lg"></i> 
+      </button>
+      
+      <!-- start game 1 vs AI -->
+      <button >
+        <i class="fa fa-user fa-lg"></i> vs <i class="fa fa-laptop fa-lg"></i>
+      </button>
+      
+    </div>
+    
+    <div id="game-screen">
+      <div class="game--header"></div>
+      <div class="game--body">
+        <div class="xo"></div>
+      </div>
+      <div class="game--footer"></div>
+    </div>
+  </body>
+</html>

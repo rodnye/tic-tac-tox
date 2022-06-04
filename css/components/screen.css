@@ -1,0 +1,24 @@
+/*
+ * LAYOUTS 
+ */
+ 
+.screen {
+  display: flex;
+  flex-direction: column;
+  background: var(--accent-color);
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  min-width: 100%;
+  min-height: 100vh;
+}
+
+.text {
+  color: var(--accent-font-color);
+}
+
+.layout {
+  z-index: 1;
+}

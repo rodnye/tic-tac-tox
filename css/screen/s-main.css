@@ -1,0 +1,30 @@
+/* MAIN SCREEN */
+
+/** title **/
+.title-game {
+  font-family: Arco;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-game > big {
+  font-size: 2em;
+}
+
+/** menu **/
+#main-screen > button {
+  padding: 5px;
+  border: 0;
+  border-radius: 10px;
+  margin: 7px;
+  background: linear-gradient(
+    var(--accent-color), var(--accent-lightcolor)
+  );
+}
+
+#main-screen > button:active {
+  background: linear-gradient(var(--accent-lightcolor), var(--accent-color));
+}

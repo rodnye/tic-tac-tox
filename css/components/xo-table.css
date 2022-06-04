@@ -1,0 +1,47 @@
+/* 
+ XO STYLES
+*/
+
+.xo {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.xo-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.xo-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--cell-size);
+  max-width: var(--cell-size);
+  min-height: var(--cell-size);
+  max-height: var(--cell-size);
+}
+
+.x-icon, .o-icon {
+  font-size: var(--cell-size);
+  filter: opacity(0);
+}
+.x-icon {
+  color: red;
+}
+.o-icon {
+  color: blue;
+}
+
+
+@media (orientation:landscape) {
+  :root {--cell-size: 20vh}
+  .xo {--border: solid 3vh}
+}
+
+@media (orientation:portrait) {
+  .xo {--border: solid 3vw}
+   :root {--cell-size: 20vw}
+}
+
