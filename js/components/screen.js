@@ -9,6 +9,7 @@ class Screen {
     opt.background = "var(--accent-color)";
     opt.size = app.width;
     opt.draggable = false;
+    opt.opacity = 0;
 
     let drawer = new Drawer(id, opt);
     let lay = drawer.drawer;

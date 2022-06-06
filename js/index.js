@@ -1,7 +1,5 @@
 app.css("css/index.css");
-app.css("css/screen/s-main.css");
 app.css("css/components/loading.css");
-app.css("css/fa/css/font-awesome.min.css");
 
 /* screen sections */
 app.script("js/screen/s-main.js");
@@ -23,6 +21,7 @@ function OnStart () {
   });
   animation.start();
   
+  /* init app */
   screen_main();
   screen_game();
 }

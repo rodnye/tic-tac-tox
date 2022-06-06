@@ -14,11 +14,11 @@
 
 /* FONTS */
 @font-face {
-  font-family: "arco";
+  font-family: Arco;
   src: url("../src/fonts/arco.ttf");
 }
 @font-face {
-  font-family: "Helvetica";
+  font-family: Helvetica;
   src: url("../src/fonts/helvetica.ttf");
 }
 

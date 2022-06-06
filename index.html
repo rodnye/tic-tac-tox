@@ -26,12 +26,12 @@
       </div>
       
       <!-- start game 1vs1 -->
-      <button onclick="screen_game.open()">
+      <button onclick="screen_game.open(); table_game.ai = null">
         <i class="fa fa-user fa-lg"></i> vs <i class="fa fa-user fa-lg"></i> 
       </button>
       
       <!-- start game 1 vs AI -->
-      <button >
+      <button onclick="modal_selectAI.show()">
         <i class="fa fa-user fa-lg"></i> vs <i class="fa fa-laptop fa-lg"></i>
       </button>
       

@@ -1,7 +1,7 @@
 /*
   XO Logic
 */
-app.script("js/game/ai.js");
+app.script("js/components/xo-table.js");
 
 class XOEngine {
   constructor ( domElement ) {
@@ -16,6 +16,10 @@ class XOEngine {
     this.table = xtable.table;
     this.tableDOM = xtable.tableDOM;
     this.turn = 1;
+  }
+  
+  insertAI (ai) {
+    this.ai = new ai(this.table, this.AIHandler.bind(this));
   }
   
   /* chequear victoria */
@@ -70,18 +74,37 @@ class XOEngine {
   
   /* click en celda */
   clickHandler (event) {
+    let ai = this.ai;
+    if (ai) if (ai.player == this.turn) return;
+    
     let cell = event.currentTarget;
     let pos = [cell.dataset.row, cell.dataset.col];
     
     if(cell.dataset.move == 0) {
       this.xtable.setMove(pos, this.turn);
-      this.check(pos);
+      let win = this.check(pos);
       this.turn = this.turn == 1 ? 2 : 1;
+      
+      if (!win && ai) {
+        app.loading.show();
+        ai.setMove();
+      }
     }
   }
   
+  /* AI event */
+  AIHandler (move) {
+    app.loading.hidden();
+    this.xtable.setMove(move, this.turn);
+    this.check(move);
+    this.turn = this.turn == 1 ? 2 : 1;
+  }
+  
   /* limpiar */
-  clear () {this.xtable.clear()}
+  clear () {
+    this.xtable.clear();
+    this.turn = 1;
+  }
 }
 
 /* estilo ganador */

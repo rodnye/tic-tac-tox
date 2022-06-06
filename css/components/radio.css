@@ -1,0 +1,30 @@
+/* 
+  RADIO BUTTONS 
+ */
+
+.radio-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.radio-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  
+  transition: background-color .2s;
+  background-color: var(--accent-color);
+}
+.radio-button:active {
+  transition: background-color .2s;
+  background-color: var(--accent-lightcolor);
+}
+
+.radio--text {
+  flex-grow: 1;
+  padding: 4px;
+}

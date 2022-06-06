@@ -1,25 +1,24 @@
 /* CPU */
-app.script("js/game/easy-ai.js");
-app.script("js/game/medium-ai.js");
-app.script("js/game/hard-ai.js");
+app.script("js/components/math.js");
+
+app.script("js/game/ai/easy-ai.js");
+app.script("js/game/ai/medium-ai.js");
+app.script("js/game/ai/hard-ai.js");
 
 
 
 class AI {
   constructor ( tablero, callback ) {
     this.table = tablero;
-    this.player = "o";
+    this.player = 2; //1 X //2 O 
     this.callback = callback;
   }
   
   setMove () {
-    this.ai();
-  }
-  
-  async ai () {
-    const {x, y} = this.recursive(this.table);
-    
-    this.callback( [x, y] );
+    window.setTimeout(
+      this.ai.bind(this),
+      math.random(200, 800)
+    );
   }
 }
 
