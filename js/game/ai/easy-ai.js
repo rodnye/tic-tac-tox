@@ -1,4 +1,7 @@
-/* AI */
+/*
+ * AI Easy
+ */
+ 
 app.script("js/components/math.js");
 
 AI.Easy = class extends AI {

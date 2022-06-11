@@ -2,7 +2,7 @@
 app.script("js/components/math.js");
 
 app.script("js/game/ai/easy-ai.js");
-app.script("js/game/ai/medium-ai.js");
+app.script("js/game/ai/normal-ai.js");
 app.script("js/game/ai/hard-ai.js");
 
 
@@ -11,6 +11,7 @@ class AI {
   constructor ( tablero, callback ) {
     this.table = tablero;
     this.player = 2; //1 X //2 O 
+    this.turn = 2;
     this.callback = callback;
   }
   
@@ -23,5 +24,5 @@ class AI {
 }
 
 AI.copyTable = function ( table ) {
-  return new Array(table);
+  return JSON.parse(JSON.stringify(table));
 };

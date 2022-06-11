@@ -21,13 +21,12 @@ function screen_main () {
   
   modal_selectAI.addButton("[sign-out]");
   modal_selectAI.addButton("[check]", function(){
-    if (/* facil */list_selectAI.value == 1) {
-      table_game.insertAI(AI.Easy);
-      screen_game.open();
-    }
+    if (/* facil */list_selectAI.value == 1) table_game.insertAI(AI.Easy);
+    if (/* normal */list_selectAI.value == 2) table_game.insertAI(AI.Normal);
+    screen_game.open();
   });
   
   list_selectAI.addItem("Fácil", 1);
-  list_selectAI.addItem("Difícil", 2);
+  list_selectAI.addItem("Normal", 2);
   modal_selectAI.body.appendChild(list_selectAI.container);
 }

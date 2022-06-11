@@ -1,8 +1,9 @@
 /* 
  GAME SCREEN 
 */
+
 app.css("css/screen/s-game.css");
-app.script("js/game/engine.js");
+app.script("js/game/xo-engine.js");
 app.script("js/components/modal.js");
 app.script("js/components/screen.js");
 
