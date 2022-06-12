@@ -1,19 +1,17 @@
 /*
  * AI Normal
  */
- 
-app.script("js/ai.js");
-app.script("js/xo-engine.js");
 
 let check = XOEngine.check;
 let copyTable = AI.copyTable;
-
+shower = false;
 
 AI.Normal = class extends AI {
   
   ai () {
     let table = this.table;
-    let bestMove = null;
+    let best_move = null;
+    let best_score = null;
     let moves = [];
     
     for (let x = 0; x < 3; x++) {
@@ -22,46 +20,30 @@ AI.Normal = class extends AI {
         //si está vacia la celda
         if (row[y] == 0) {
           let tableCase = copyTable(table);
-          tableCase[x][y] = this.player;
+              tableCase[x][y] = this.player;
+          
+          let score = this.recursive(tableCase, this.player);
+          if (check(tableCase)) score = 1000;
+          
+          if( best_score === null ||
+              score > best_score ||
+              (score == best_score && math.random(0,1))
+          ) {
+            best_score = score;
+            best_move = [x, y];
+          }
+          
           
           moves.push({
-            points: this.recursive(tableCase, this.player),
+            score: score,
             move: [x, y]
           });
           
         }
     }
     
-    moves.sort(function(a, b){
-      return b.points - a.points;
-    });
+    moves.sort((a, b) => b.score - a.score );
     console.log(moves);
-    return this.callback(moves[0].move);
+    return this.callback(best_move);
   }
-  
-  recursive ( table, turn ) {
-    let points = 0;
-    
-    for (let x = 0; x < 3; x++) {
-      for (let y = 0; y < 3; y++) {
-        
-        if (table[x][y] == 0) {
-          let tableCase = copyTable(table);
-          tableCase[x][y] = turn;
-          let check_value = check( tableCase, [x, y] );
-          
-          if (check_value) {
-            if (check_value.type != "table")
-              //ganó
-              points += turn == this.player ? 1 : -1;
-          } 
-          else points += this.recursive(tableCase, turn == 1 ? 2 : 1);
-          
-        }
-      }
-    }
-    
-    return points;
-  }
-  
 };

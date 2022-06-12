@@ -114,42 +114,54 @@ function setWinCell (element) {
 }
 
 /* chequear victoria */
-XOEngine.check = function (table, posMove) {
-  let x = posMove[0], y = posMove[1];
+XOEngine.check = function (table) {
   let equal3 = XOEngine.equal3;
-  let win = null;
   
-  /* comprobar columna */
-  if( equal3(table[0][y], table[1][y], table[2][y]) ) win = {
-    type: "col",
-    place: y
-  };
-    
-  /* comprobar fila */
-  else if ( equal3(table[x][0],table[x][1], table[x][2]) ) win = {
-    type: "row",
-    place: x
-  };
+  
+  /* comprobar fila*/
+  for (let x = 0; x < 3; x ++) {
+    let row = table[x];
+    if ( equal3(row[0], row[1], row[2]) ) return {
+      type: "row",
+      place: x
+    };
+  }
+  
+  /* comprobatr columna */
+  for (let y = 0; y < 3; y ++)
+    if ( equal3(table[0][y], table[1][y], table[2][y]) ) return {
+      type: "col",
+      place: y
+    };
+  
     
   /* comprobar diagonales */
-  else if( equal3(table[0][0], table[1][1], table[2][2]) ) win = {
-    type: "diag",
-    place: 0
-  };
-  else if( equal3(table[0][2], table[1][1], table[2][0]) ) win = {
-    type: "diag",
-    place: 2
-  };
-  else if( 
+  if( equal3(table[0][0], table[1][1], table[2][2]) )
+    return {
+      type: "diag",
+      place: 0
+    };
+  if( equal3(table[0][2], table[1][1], table[2][0]) )
+    return {
+      type: "diag",
+      place: 2
+    };
+  
+  /* empate */
+  if( 
     table[0][0] && table[0][1] && table[0][2] &&
     table[1][0] && table[1][1] && table[1][2] &&
     table[2][0] && table[2][1] && table[2][2]
-   ) win = { type: "table" };
+   ) return { type: "table" };
  
-  return win;
+  return null
 };
 
 /* evaluar celdas introducidas */
 XOEngine.equal3 = function(c1, c2, c3) {
   return c1 == c2 && c2 == c3 && c1 + c2 + c3 != 0;
 };
+
+XOEngine.opositePlayer = function (player) {
+  return player == 1 ? 2 : 1;
+}
